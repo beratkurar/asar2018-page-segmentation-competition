@@ -1,4 +1,4 @@
-### Installations for running keras-theano on GPU
+## Installations for running keras-theano on GPU
 1. Upgrade pip and install opencv2
 ```
 cd ~
@@ -41,26 +41,26 @@ sudo ldconfig
 THEANO_FLAGS=device=cuda0 python3
 ```
 
-### How to run the project
-1. Create train patches
-```
-cd hdata
-python3 HighDenseTrainPatchMaker.py
-```
-2. Create validation and test patches
-```
-cd ldata
-python3 ValidationPatchMaker.py
-python3 TestPatchMaker.py
-```
-3. Train FCN
-```
-THEANO_FLAGS=device=cuda0 python3 pagetrainf8.py
-```
-4. Predict test pages
-```
-python3 pagepredictf8.py
-```
-5. See the predictions in the folder called `out`.
+## How to run the project
+### Training
+1. Download [ASAR2018 train set] (http://cs-people.bu.edu/wdqin/ASAR2018LayoutAnalysisCompetition/main.html)
 
+2. Create labeled images
+```
+python3 labeler.py
+```
+3. Create train patches
+```
+python3 TrainPatchMaker.py
+```
+4. Train FCN and save the best weights
+```
+python3 lightpagetrainf8.py
+```
+### Testing
+1. Download [ASAR2018 benchmark set] (http://cs-people.bu.edu/wdqin/ASAR2018LayoutAnalysisCompetition/main.html)
 
+2. Run BenchmarkPredictor.py to predict page segmentations of evaluation set.
+```
+THEANO_FLAGS=device=cuda0 python3 BenchmarkPredictor.py
+```
