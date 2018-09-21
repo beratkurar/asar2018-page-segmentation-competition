@@ -55,14 +55,14 @@ python3 TrainPatchMaker.py
 ```
 4. Train FCN and save the best weights
 ```
-python3 lightpagetrainf8.py
+THEANO_FLAGS=device=cuda0 python3 lightpagetrainf8.py
 ```
 ### Testing
 1. Download [ASAR2018 benchmark set](http://cs-people.bu.edu/wdqin/ASAR2018LayoutAnalysisCompetition/main.html)
 
 2. Run BenchmarkPredictor.py to predict page segmentations of evaluation set.
 ```
-THEANO_FLAGS=device=cuda0 python3 BenchmarkPredictor.py
+python3 BenchmarkPredictor.py
 ```
 3. Refine the results
 ```
