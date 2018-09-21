@@ -60,11 +60,21 @@ THEANO_FLAGS=device=cuda0 python3 lightpagetrainf8.py
 ### Testing
 1. Download [ASAR2018 benchmark set](http://cs-people.bu.edu/wdqin/ASAR2018LayoutAnalysisCompetition/main.html)
 
-2. Run BenchmarkPredictor.py to predict page segmentations of evaluation set.
+2. Preprocess test set
+```
+python3 Binarizer.py
+python3 Trimmer.py
+python3 LineDetector.py
+```
+3. Create test patches
+```
+python3 BenchmarkTestPatchMaker.py
+```
+2. Predict page segmentations of evaluation set
 ```
 python3 BenchmarkPredictor.py
 ```
-3. Refine the results
+3. Postprocess the results
 ```
 python3 refine_segmentation.py
 ```
