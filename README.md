@@ -70,11 +70,11 @@ python3 LineDetector.py
 ```
 python3 BenchmarkTestPatchMaker.py
 ```
-2. Predict page segmentations of evaluation set
+4. Predict page segmentations of evaluation set
 ```
 python3 BenchmarkPredictor.py
 ```
-3. Postprocess the results
+5. Postprocess the results
 ```
 python3 refine_segmentation.py
 ```
