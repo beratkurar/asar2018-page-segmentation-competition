@@ -1,8 +1,4 @@
 
-# https://github.com/wkentaro/pytorch-fcn/blob/master/torchfcn/models/fcn32s.py
-# fc weights into the 1x1 convs  , get_upsampling_weight 
-
-
 
 from keras.models import *
 from keras.layers import *
@@ -127,9 +123,3 @@ def FCN8( nClasses ,  input_height=416, input_width=608 , vgg_level=3):
 
 	return model
 
-
-
-if __name__ == '__main__':
-	m = FCN8( 101 )
-	from keras.utils import plot_model
-	plot_model( m , show_shapes=True , to_file='model.png')
